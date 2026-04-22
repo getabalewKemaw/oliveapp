@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/Navbar/Navbar";
+import { TrustedBy } from "@/components/Hero/TrustedBy";
 
 export default function Home() {
   return (
@@ -13,7 +14,7 @@ export default function Home() {
         <main className="flex-1 flex flex-col items-center pt-12 px-12 text-center">
 
           {/* Trusted By Section */}
-          <div className="mb-8 w-64 h-8 bg-[#505E41]/5 rounded-full animate-pulse mx-auto" />
+          <TrustedBy />
 
           {/* Headline Section */}
           <div className="max-w-[672px] mx-auto mb-6">
