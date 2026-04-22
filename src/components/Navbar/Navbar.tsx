@@ -23,7 +23,7 @@ export const Navbar = () => {
           <div key={link.label} className="group relative">
             <Link
               href={link.href}
-              className="px-4 py-2 text-sm font-medium text-brand-hero hover:text-black flex items-center gap-1 transition-colors"
+              className="px-4 py-2 text-sm font-medium text-brand-normal hover:text-black flex items-center gap-1 transition-colors"
             >
               {link.label}
               {link.dropdownItems && (
@@ -45,7 +45,7 @@ export const Navbar = () => {
       <div className="flex items-center gap-6">
         <Link
           href="/sign-in"
-          className="text-sm font-medium text-brand-hero hover:text-black transition-colors"
+          className="text-sm font-medium text-brand-normal hover:text-black transition-colors"
         >
           Sign in
         </Link>

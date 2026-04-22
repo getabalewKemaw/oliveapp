@@ -21,7 +21,7 @@ export const NavDropdown = ({ items, image }: NavDropdownProps) => {
               href={item.href}
               className="p-4 rounded-2xl hover:bg-brand-bg transition-colors group/item"
             >
-              <h4 className="text-sm font-semibold text-brand-hero group-hover/item:text-black">
+              <h4 className="text-sm font-semibold text-brand-normal group-hover/item:text-black">
                 {item.title}
               </h4>
               <p className="text-xs text-[#1f1f1f99] mt-1 line-clamp-1">
