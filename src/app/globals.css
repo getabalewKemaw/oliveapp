@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+:root {
+  --color-brand-bg: #F5FAF6;
+  --color-brand-primary: #253612;
+  --color-brand-hero: #505E41;
+  --color-brand-normal: #3C3C3C;
+  --pure-white: #FFFFFF;
+}
+
+@theme inline {
+  --color-brand-bg: var(--color-brand-bg);
+  --color-brand-primary: var(--color-brand-primary);
+  --color-brand-hero: var(--color-brand-hero);
+  --color-brand-normal: var(--color-brand-normal);
+}
+
+body {
+  background-color: var(--pure-white);
+  color: var(--color-brand-normal);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  /* Increased padding for a more "framed" look */
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 13px;
+  }
+}
