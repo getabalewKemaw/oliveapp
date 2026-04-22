@@ -22,7 +22,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 40px;
+  padding: 30px 30px;
 }
 
 @media (max-width: 640px) {
