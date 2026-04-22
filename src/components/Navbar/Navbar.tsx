@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { NAV_LINKS } from "@/constants/nav";
 import { NavDropdown } from "@/components/Navbar/NavDropdown";
@@ -19,12 +18,12 @@ export const Navbar = () => {
       </Link>
 
       {/* Navigation Links (Centered) */}
-      <nav className="hidden lg:flex flex-1 justify-center items-center gap-2">
+      <nav className="hidden lg:flex flex-1 justify-center items-center gap-1">
         {NAV_LINKS.map((link) => (
           <div key={link.label} className="group relative">
             <Link
               href={link.href}
-              className="px-4 py-2 text-[15px] font-medium text-brand-hero hover:text-black flex items-center gap-1 transition-colors"
+              className="px-4 py-2 text-sm font-medium text-brand-hero hover:text-black flex items-center gap-1 transition-colors"
             >
               {link.label}
               {link.dropdownItems && (
@@ -46,13 +45,13 @@ export const Navbar = () => {
       <div className="flex items-center gap-6">
         <Link
           href="/sign-in"
-          className="text-[15px] font-medium text-brand-hero hover:text-black transition-colors"
+          className="text-sm font-medium text-brand-hero hover:text-black transition-colors"
         >
           Sign in
         </Link>
         <Button href="/get-olive" className="gap-2">
           Get Olive
-          <span className="text-xl">→</span>
+          <span className="text-base">→</span>
         </Button>
       </div>
     </header>

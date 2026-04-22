@@ -29,7 +29,7 @@ export const TrustedBy = () => {
       </div>
 
       {/* Social Proof Text */}
-      <span className="text-[13px] font-medium text-brand-hero tracking-tight">
+      <span className="text-xs font-medium text-brand-hero tracking-tight">
         Trusted by <span className="text-brand-primary font-bold">10,000+</span> healthy families
       </span>
     </div>

@@ -13,6 +13,7 @@
   --color-brand-primary: var(--color-brand-primary);
   --color-brand-hero: var(--color-brand-hero);
   --color-brand-normal: var(--color-brand-normal);
+  --font-sans: var(--font-sans);
 }
 
 body {
@@ -22,7 +23,6 @@ body {
   display: flex;
   flex-direction: column;
   padding: 40px;
-  /* Increased padding for a more "framed" look */
 }
 
 @media (max-width: 640px) {
