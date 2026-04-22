@@ -13,7 +13,7 @@ export default function Home() {
         <Navbar />
 
         {/* Hero Section Content Area */}
-        <main className="flex-1 flex flex-col items-center pt-16 px-12 text-center pb-40">
+        <main className="relative flex-1 flex flex-col items-center pt-16 px-12 text-center overflow-hidden pb-[420px]">
 
           {/* Trusted By Section */}
           <TrustedBy />

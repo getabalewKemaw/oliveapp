@@ -8,7 +8,7 @@ import { ChevronDown } from "lucide-react";
 
 export const Navbar = () => {
   return (
-    <header className="w-full h-24 flex items-center justify-between px-12 relative z-50">
+    <header className="w-full h-24 flex items-center justify-between px-5 relative z-50">
       {/* Logo */}
       <Link href="/" className="flex-shrink-0">
         <img
