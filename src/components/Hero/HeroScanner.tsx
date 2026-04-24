@@ -31,33 +31,29 @@ export const HeroScanner = () => {
     <div className="relative w-[400px] mt-0 translate-y-8">
 
       {/* iPhone Frame: Reduced height (aspect-square + extra) for better clipping */}
-      <div className="relative w-full aspect-[9/16] rounded-[50px] p-[4px] shadow-[0_40px_80px_-10px_rgba(0,0,0,0.15)] overflow-hidden"
-        style={{ background: "linear-gradient(145deg, #d6d6d6, #e8e8e8, #c8c8c8)" }}>
+      <div className="relative w-full aspect-[9/16] rounded-[50px] p-[2px] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] overflow-hidden bg-[#E2E2E2] border-[9px] border-gray-300">
 
-        {/* Dark Bezel */}
-        <div className="w-full h-full bg-[#1C1C1E] rounded-[46px] p-[3px]">
-
-          {/* Pure White Screen */}
-          <div className="relative w-full h-full bg-white rounded-[44px] overflow-hidden flex flex-col">
+        {/* Pure White Screen - Now sits directly inside the silver frame */}
+        <div className="relative w-full h-full bg-white rounded-[38px] overflow-hidden flex flex-col">
 
             {/* Dynamic Island */}
             <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-50" />
 
             {/* Content Area */}
             <div className="relative flex-1 flex flex-col pt-10 overflow-hidden">
-              
+
               {/* Carousel Container (Top Images) */}
               <div className="relative w-full h-[160px] flex items-center justify-center overflow-visible z-20">
                 {/* Previous Image (Left, Blurry, Small) */}
                 <div className="absolute left-0 -translate-x-1/2 w-[100px] h-[100px] opacity-20 blur-md scale-75 transition-all duration-1000 ease-in-out">
-                  <div className="w-full h-full rounded-[25px] overflow-hidden border border-black/5 bg-white">
+                  <div className="w-full h-full rounded-[25px] overflow-hidden bg-white">
                     <Image src={SCAN_PAIRS[getIndex(-1)].top} alt="Prev" fill className="object-cover" />
                   </div>
                 </div>
 
                 {/* Current Image (Center, Clear, Large) */}
                 <div className="relative w-[150px] h-[150px] z-30 transition-all duration-1000 ease-in-out">
-                  <div className="w-full h-full rounded-[35px] overflow-hidden shadow-xl border border-black/5 bg-white">
+                  <div className="w-full h-full rounded-[35px] overflow-hidden shadow-xl  bg-white">
                     <Image
                       key={currentIndex}
                       src={SCAN_PAIRS[currentIndex].top}
@@ -70,7 +66,7 @@ export const HeroScanner = () => {
 
                 {/* Next Image (Right, Blurry, Small) */}
                 <div className="absolute right-0 translate-x-1/2 w-[100px] h-[100px] opacity-20 blur-md scale-75 transition-all duration-1000 ease-in-out">
-                  <div className="w-full h-full rounded-[25px] overflow-hidden border border-black/5 bg-white">
+                  <div className="w-full h-full rounded-[25px] overflow-hidden bg-white">
                     <Image src={SCAN_PAIRS[getIndex(1)].top} alt="Next" fill className="object-cover" />
                   </div>
                 </div>
@@ -94,14 +90,13 @@ export const HeroScanner = () => {
             </div>
           </div>
         </div>
-      </div>
 
       {/* Extreme Far Left/Right Blurry Cards (Optional visual flair from screenshot) */}
       <div className="absolute -left-20 top-20 w-16 h-16 opacity-5 blur-sm scale-50 -z-10">
-         <div className="w-full h-full rounded-2xl bg-white border border-black/5" />
+        <div className="w-full h-full rounded-2xl bg-white" />
       </div>
       <div className="absolute -right-20 top-20 w-16 h-16 opacity-5 blur-sm scale-50 -z-10">
-         <div className="w-full h-full rounded-2xl bg-white border border-black/5" />
+        <div className="w-full h-full rounded-2xl bg-white " />
       </div>
     </div>
   );

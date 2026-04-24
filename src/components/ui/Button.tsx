@@ -18,7 +18,7 @@ export const Button = ({
   className,
   ...props
 }: ButtonProps) => {
-  const baseStyles = "inline-flex items-center justify-center rounded-full font-semibold transition-all focus:outline-none disabled:opacity-50 disabled:pointer-events-none";
+  const baseStyles = "inline-flex items-center justify-center rounded-full font-bold transition-all focus:outline-none disabled:opacity-50 disabled:pointer-events-none";
 
   const variants = {
     primary: "bg-brand-primary text-white hover:opacity-90",

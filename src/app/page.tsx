@@ -20,14 +20,14 @@ export default function Home() {
 
           {/* Headline Section */}
           <div className="max-w-[800px] mx-auto mb-8">
-            <h1 className="text-[85px] font-semibold leading-[1.1] tracking-[-2px] text-brand-primary text-balance">
+            <h1 className="text-[85px] font-bold leading-[1.05] tracking-[-3px] text-brand-primary text-balance">
               The Safest Way to Shop for Groceries
             </h1>
           </div>
 
           {/* Subheadline Section */}
           <div className="max-w-[540px] mx-auto mb-10">
-            <p className="text-[18px] font-medium leading-[26px] text-brand-normal text-balance">
+            <p className="text-[18px] font-normal leading-[28px] text-brand-normal text-balance opacity-90">
               Use the Olive Food Scanner App to Instantly Eliminate Harmful Ingredients from Your Family&#39;s Diet and Get Expert-Backed Food Insights
             </p>
           </div>
@@ -43,7 +43,7 @@ export default function Home() {
           </div>
 
           {/* Phone Scanner — Now in the natural flow below the content */}
-          <div className="w-full flex justify-center">
+          <div className="w-full flex justify-center border-[10px] border-white">
             <HeroScanner />
           </div>
 
