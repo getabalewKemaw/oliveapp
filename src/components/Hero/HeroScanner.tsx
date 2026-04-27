@@ -21,59 +21,67 @@ export const HeroScanner = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Helper to get relative indices for the carousel
-  const getIndex = (offset: number) => {
-    return (currentIndex + offset + SCAN_PAIRS.length) % SCAN_PAIRS.length;
-  };
 
   return (
     /* Relative positioning in the natural flow, centered */
     <div className="relative w-[400px] mt-0 translate-y-8">
 
       {/* iPhone Frame: Reduced height (aspect-square + extra) for better clipping */}
-      <div className="relative w-full aspect-[9/16] rounded-[50px] p-[2px] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] overflow-hidden bg-[#E2E2E2] border-[9px] border-gray-300">
+      <div className="relative w-full aspect-[9/16] rounded-[50px] p-[2px] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] bg-[#E2E2E2] border-[9px] border-gray-300">
 
         {/* Pure White Screen - Now sits directly inside the silver frame */}
-        <div className="relative w-full h-full bg-white rounded-[38px] overflow-hidden flex flex-col">
+        <div className="relative w-full h-full bg-white rounded-[38px] flex flex-col">
 
             {/* Dynamic Island */}
             <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-50" />
 
             {/* Content Area */}
-            <div className="relative flex-1 flex flex-col pt-10 overflow-hidden">
+            <div className="relative flex-1 flex flex-col pt-10">
 
-              {/* Carousel Container (Top Images) */}
-              <div className="relative w-full h-[160px] flex items-center justify-center overflow-visible z-20">
-                {/* Previous Image (Left, Blurry, Small) */}
-                <div className="absolute left-0 -translate-x-1/2 w-[100px] h-[100px] opacity-20 blur-md scale-75 transition-all duration-1000 ease-in-out">
-                  <div className="w-full h-full rounded-[25px] overflow-hidden bg-white">
-                    <Image src={SCAN_PAIRS[getIndex(-1)].top} alt="Prev" fill className="object-cover" />
-                  </div>
-                </div>
+              {/* Carousel Container (Top Images) - Slide from right to left */}
+              <div className="relative w-full h-[160px] flex items-center justify-center z-20">
+                {SCAN_PAIRS.map((pair, index) => {
+                  // Calculate position relative to currentIndex
+                  // Handle wrapping for infinite feel
+                  let diff = index - currentIndex;
+                  if (diff > 1) diff -= SCAN_PAIRS.length;
+                  if (diff < -1) diff += SCAN_PAIRS.length;
 
-                {/* Current Image (Center, Clear, Large) */}
-                <div className="relative w-[150px] h-[150px] z-30 transition-all duration-1000 ease-in-out">
-                  <div className="w-full h-full rounded-[35px] overflow-hidden shadow-xl  bg-white">
-                    <Image
-                      key={currentIndex}
-                      src={SCAN_PAIRS[currentIndex].top}
-                      alt="Active"
-                      fill
-                      className="object-cover animate-in fade-in zoom-in duration-700"
-                    />
-                  </div>
-                </div>
+                  // Determine position and style
+                  const isActive = diff === 0;
+                  const isPrev = diff === -1;
+                  const isNext = diff === 1;
 
-                {/* Next Image (Right, Blurry, Small) */}
-                <div className="absolute right-0 translate-x-1/2 w-[100px] h-[100px] opacity-20 blur-md scale-75 transition-all duration-1000 ease-in-out">
-                  <div className="w-full h-full rounded-[25px] overflow-hidden bg-white">
-                    <Image src={SCAN_PAIRS[getIndex(1)].top} alt="Next" fill className="object-cover" />
-                  </div>
-                </div>
+                  // If it's not one of these 3, we hide it or keep it far away
+                  const isVisible = isActive || isPrev || isNext;
+
+                  return (
+                    <div
+                      key={index}
+                      className="absolute transition-all duration-1000 ease-in-out"
+                      style={{
+                        transform: `translateX(${diff * 220}px) scale(${isActive ? 1 : 0.65})`,
+                        opacity: isActive ? 1 : 0.4,
+                        filter: isActive ? "none" : "blur(4px)",
+                        zIndex: isActive ? 30 : 20,
+                        visibility: isVisible ? "visible" : "hidden",
+                      }}
+                    >
+                      <div className={`w-[150px] h-[150px] rounded-[35px] overflow-hidden ${isActive ? "shadow-2xl" : ""} bg-white`}>
+                        <Image
+                          src={pair.top}
+                          alt={`Scan ${index}`}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
 
-              {/* Bottom Image (The Result Card) */}
-              <div className="relative flex-1 -mt-4 z-10">
+              {/* Bottom Image (The Result Card) - Kept inside with its own clipping */}
+              <div className="relative flex-1 -mt-4 z-10 overflow-hidden rounded-b-[38px]">
                 <div className="absolute inset-x-0 top-0 h-[140%] transition-all duration-1000 ease-in-out">
                   <Image
                     key={`bottom-${currentIndex}`}
@@ -91,13 +99,6 @@ export const HeroScanner = () => {
           </div>
         </div>
 
-      {/* Extreme Far Left/Right Blurry Cards (Optional visual flair from screenshot) */}
-      <div className="absolute -left-20 top-20 w-16 h-16 opacity-5 blur-sm scale-50 -z-10">
-        <div className="w-full h-full rounded-2xl bg-white" />
-      </div>
-      <div className="absolute -right-20 top-20 w-16 h-16 opacity-5 blur-sm scale-50 -z-10">
-        <div className="w-full h-full rounded-2xl bg-white " />
-      </div>
     </div>
   );
 };

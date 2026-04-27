@@ -43,7 +43,7 @@ export default function Home() {
           </div>
 
           {/* Phone Scanner — Now in the natural flow below the content */}
-          <div className="w-full flex justify-center border-[10px] border-white">
+          <div className="w-full flex justify-center">
             <HeroScanner />
           </div>
 
