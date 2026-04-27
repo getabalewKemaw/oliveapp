@@ -6,7 +6,7 @@ A premium Next.js web application featuring a high-fidelity reconstruction of th
 - **Interactive HeroScanner**: A custom-built scanner animation featuring a dual-layer sliding effect.
 - **Dynamic Animations**: Top section images slide smoothly from right to left with a professional "bleed" effect that extends beyond the mobile frame borders.
 - **Visual Excellence**: Sophisticated use of blur and transparency to create a tech-forward, premium aesthetic.
-- **Fully Responsive**: Designed to look stunning across all devices.
+- 
 
 ## Preview
 ![Hero Scanner Preview](./public/ImgAssets/heroScanner/image.png)
